@@ -4,15 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RUSH - Game Store</title>
+<title>RUSH — Game Store</title>
 
 <style>
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
-    margin: 0;
     background: #101014;
     color: white;
     font-family: Arial, sans-serif;
@@ -22,98 +22,202 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 7%;
+    padding: 22px 7%;
     background: #19191f;
 }
 
 .logo {
+    color: #a970ff;
     font-size: 28px;
     font-weight: bold;
-    color: #a970ff;
+    letter-spacing: 2px;
 }
 
 nav a {
-    color: white;
+    color: #ccc;
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 22px;
+}
+
+nav a:hover {
+    color: #a970ff;
 }
 
 .hero {
     padding: 65px 7%;
-    background: linear-gradient(120deg, #30105b, #11111a);
+    background: linear-gradient(110deg, #30105b, #11111a);
 }
 
 .hero h1 {
     font-size: 42px;
+    margin-bottom: 12px;
 }
 
 .hero p {
-    color: #c5c5d0;
-}
-
-button {
-    background: #914cff;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    cursor: pointer;
+    color: #bbb;
 }
 
 .container {
-    padding: 30px 7%;
+    padding: 35px 7%;
 }
 
-#search {
-    width: 100%;
-    padding: 14px;
-    margin: 15px 0;
-    background: #202027;
-    border: 1px solid #393943;
-    border-radius: 7px;
-    color: white;
-}
-
-.filters {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+.section-title {
+    margin-bottom: 20px;
+    font-size: 25px;
 }
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
 }
 
 .game {
+    border-radius: 12px;
+    overflow: hidden;
     background: #1c1c24;
-    border-radius: 10px;
+    border: 1px solid #30303a;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.game:hover {
+    transform: translateY(-5px);
+    border-color: #a970ff;
+}
+
+.banner {
+    height: 190px;
+    display: flex;
+    align-items: end;
+    padding: 22px;
+    position: relative;
     overflow: hidden;
 }
 
-.cover {
+.banner h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 29px;
+    text-shadow: 0 2px 8px black;
+}
+
+.minecraft-banner {
+    background:
+        linear-gradient(0deg, #10220f, transparent 85%),
+        linear-gradient(120deg, #477e38, #80ad55, #273f26);
+}
+
+.minecraft-banner::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    right: 35px;
+    top: 15px;
+    background: #739d49;
+    box-shadow:
+        -35px 45px 0 #4a7937,
+        35px 65px 0 #365c2c;
+    transform: rotate(15deg);
+}
+
+.freefire-banner {
+    background:
+        linear-gradient(0deg, #280c0b, transparent 85%),
+        linear-gradient(120deg, #e04c20, #86272c, #24121d);
+}
+
+.freefire-banner::before {
+    content: "";
+    position: absolute;
+    width: 130px;
     height: 130px;
-    display: grid;
-    place-items: center;
-    font-size: 45px;
-    background: linear-gradient(135deg, #402078, #171727);
+    right: 40px;
+    top: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffad40, #c83a24, #50161c);
+    box-shadow: 0 0 45px #ff6b30;
 }
 
 .game-info {
-    padding: 15px;
+    padding: 17px;
 }
 
-.price {
-    color: #a970ff;
+.game-info p {
+    color: #999;
+    margin-top: 8px;
+}
+
+.game-info .price {
+    color: #ad80ff;
     font-weight: bold;
+}
+
+.platform {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 5px 9px;
+    background: #30233f;
+    color: #c5a3ff;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.details {
+    display: none;
+    padding: 35px 7%;
+    min-height: 65vh;
+}
+
+.details.active {
+    display: block;
+}
+
+.details-banner {
+    height: 220px;
+    border-radius: 12px;
+    display: flex;
+    align-items: end;
+    padding: 25px;
+    margin: 25px 0;
+}
+
+.details h1 {
+    font-size: 35px;
+}
+
+.details p {
+    color: #bbb;
+    line-height: 1.7;
+    margin: 15px 0;
+    max-width: 650px;
+}
+
+.back {
+    background: #292933;
+    margin-bottom: 20px;
+}
+
+.download {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: #914cff;
+    padding: 13px 22px;
+    border-radius: 6px;
+    margin-top: 12px;
+}
+
+.download:hover {
+    background: #7837df;
 }
 
 footer {
     text-align: center;
     padding: 30px;
     color: #777;
+    border-top: 1px solid #292933;
 }
 
 @media(max-width: 600px) {
@@ -122,16 +226,16 @@ footer {
     }
 
     nav a {
-        margin-left: 8px;
+        margin-left: 9px;
         font-size: 12px;
     }
 
     .hero h1 {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .container {
-        padding: 20px;
+        padding: 25px 18px;
     }
 }
 </style>
@@ -143,114 +247,148 @@ footer {
     <div class="logo">RUSH.</div>
 
     <nav>
-        <a href="#">Home</a>
-        <a href="#store">Store</a>
-        <a href="#games">Games</a>
+        <a href="#" onclick="showHome()">Home</a>
+        <a href="#store" onclick="showHome()">Store</a>
     </nav>
 </header>
 
-<section class="hero">
-    <h1>LEVEL UP YOUR GAMING.</h1>
-    <p>Discover your next favourite game at RUSH.</p>
-    <button onclick="document.getElementById('store').scrollIntoView()">
-        Explore Games
-    </button>
+<section class="hero" id="hero">
+    <h1>DISCOVER YOUR NEXT GAME.</h1>
+    <p>Your next adventure starts here.</p>
 </section>
 
-<main class="container" id="store">
+<main id="home">
 
-    <h2>Discover Games</h2>
+<section class="container" id="store">
 
-    <input
-        type="text"
-        id="search"
-        placeholder="Search games..."
-        oninput="filterGames()"
-    >
+    <h2 class="section-title">Featured Games</h2>
 
-    <div class="filters">
-        <button onclick="setFilter('All')">All</button>
-        <button onclick="setFilter('PC')">PC</button>
-        <button onclick="setFilter('Mobile')">Mobile</button>
-        <button onclick="setFilter('Free')">Free</button>
-    </div>
+    <div class="game-grid">
 
-    <div class="game-grid" id="games">
+        <div class="game" onclick="showGame('minecraft')">
 
-        <div class="game" data-name="Minecraft" data-platform="PC" data-price="Paid">
-            <div class="cover">⛏️</div>
+            <div class="banner minecraft-banner">
+                <h2>MINECRAFT</h2>
+            </div>
+
             <div class="game-info">
                 <h3>Minecraft</h3>
-                <p>PC Edition</p>
-                <p class="price">$29.99</p>
+                <p>Build, explore and survive.</p>
+                <span class="platform">PC / MOBILE</span>
+                <p class="price">Paid</p>
             </div>
+
         </div>
 
-        <div class="game" data-name="Valorant" data-platform="PC" data-price="Free">
-            <div class="cover">🎯</div>
-            <div class="game-info">
-                <h3>Valorant</h3>
-                <p>PC Edition</p>
-                <p class="price">FREE</p>
-            </div>
-        </div>
+        <div class="game" onclick="showGame('freefire')">
 
-        <div class="game" data-name="Free Fire" data-platform="Mobile" data-price="Free">
-            <div class="cover">🔥</div>
+            <div class="banner freefire-banner">
+                <h2>FREE FIRE</h2>
+            </div>
+
             <div class="game-info">
                 <h3>Free Fire</h3>
-                <p>Mobile Edition</p>
-                <p class="price">FREE</p>
+                <p>Battle royale experience.</p>
+                <span class="platform">MOBILE</span>
+                <p class="price">Free</p>
             </div>
-        </div>
 
-        <div class="game" data-name="Stardew Valley" data-platform="Mobile" data-price="Paid">
-            <div class="cover">🌾</div>
-            <div class="game-info">
-                <h3>Stardew Valley</h3>
-                <p>Mobile Edition</p>
-                <p class="price">$4.99</p>
-            </div>
         </div>
 
     </div>
+
+</section>
+
 </main>
 
+<section class="details" id="details">
+
+    <button class="back" onclick="showHome()">Back to Store</button>
+
+    <div id="game-content"></div>
+
+</section>
+
 <footer>
-    © 2026 RUSH. All rights reserved.
+    RUSH. Digital Game Store
+    <br><br>
+    © 2026 RUSH
 </footer>
 
 <script>
-let currentFilter = "All";
 
-function setFilter(filter) {
-    currentFilter = filter;
-    filterGames();
+const games = {
+
+    minecraft: {
+        name: "Minecraft",
+        description:
+        "Explore infinite worlds, build amazing structures, gather resources and survive. Minecraft lets you create your own adventures.",
+        platform: "PC / Android / iOS",
+        price: "Paid",
+        banner: "minecraft-banner",
+        link: "https://www.minecraft.net/download"
+    },
+
+    freefire: {
+        name: "Free Fire",
+        description:
+        "Experience an action-packed mobile battle royale game. Explore different modes, compete with other players and aim for victory.",
+        platform: "Android / iOS",
+        price: "Free",
+        banner: "freefire-banner",
+        link: "https://play.google.com/store/apps/details?id=com.garena.game.ffi"
+    }
+
+};
+
+function showGame(id) {
+
+    const game = games[id];
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("hero").style.display = "none";
+
+    const details = document.getElementById("details");
+
+    details.classList.add("active");
+
+    document.getElementById("game-content").innerHTML = `
+
+        <div class="details-banner ${game.banner}">
+            <h1>${game.name}</h1>
+        </div>
+
+        <h1>${game.name}</h1>
+
+        <p>${game.description}</p>
+
+        <p><strong>Platform:</strong> ${game.platform}</p>
+
+        <p><strong>Price:</strong> ${game.price}</p>
+
+        <a class="download"
+           href="${game.link}"
+           target="_blank"
+           rel="noopener noreferrer">
+           View Download Options
+        </a>
+
+    `;
+
+    window.scrollTo(0, 0);
 }
 
-function filterGames() {
-    let search = document.getElementById("search").value.toLowerCase();
+function showHome() {
 
-    let games = document.querySelectorAll(".game");
+    document.getElementById("home").style.display = "block";
+    document.getElementById("hero").style.display = "block";
 
-    games.forEach(game => {
-        let name = game.dataset.name.toLowerCase();
-        let platform = game.dataset.platform;
-        let price = game.dataset.price;
+    document.getElementById("details").classList.remove("active");
 
-        let matchesSearch = name.includes(search);
-
-        let matchesFilter =
-            currentFilter === "All" ||
-            platform === currentFilter ||
-            price === currentFilter;
-
-        game.style.display =
-            matchesSearch && matchesFilter ? "block" : "none";
-    });
+    window.scrollTo(0, 0);
 }
+
 </script>
 
 </body>
-  </html>
-  
+</html>
